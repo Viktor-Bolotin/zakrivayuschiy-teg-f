@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+*:focus,
+*:focus-visible {
+  outline: none;
+}
+
 body {
   margin: 0;
 }
@@ -35,6 +40,11 @@ input {
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 ul,
