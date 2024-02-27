@@ -31,13 +31,13 @@
   width: clamp(23.438rem, 30.516vw + 16.285rem, 43.75rem);
   justify-content: center;
   align-items: center;
-  grid-template-rows: 1fr auto 20px auto 25px auto 25px;
+  grid-template-rows: 1fr auto 20px auto 25px auto 20px;
   background-color: var(--main-color);
   outline: 2px solid var(--accent-color);
   font-family: var(--font-accent), fantasy;
 }
 
-.header__title {
+.header__logo {
   grid-row: 2;
   color: var(--accent-color);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
@@ -45,7 +45,7 @@
   margin-inline: 14px;
 }
 
-.header__subtitle {
+.header__title {
   grid-row: 4;
   color: var(--accent-color);
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
@@ -116,7 +116,7 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  margin-block-start: 100px;
+  margin-block-start: 106px;
   width: clamp(23.438rem, 30.516vw + 16.285rem, 43.75rem);
 }
 
@@ -128,8 +128,10 @@
   outline: 2px solid var(--accent-color);
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
+/* Если я всё правильно понял, то нужно использовать font-variation-settings для настройки вариативного шрифта так */
 .card__title {
   font-variation-settings: "wght" var(--subtitle-weight);
   padding: 3px 10px;
@@ -200,18 +202,19 @@
   filter: brightness(75%);
 }
 
+/* Если я всё правильно понял, то нужно использовать font-variation-settings для настройки вариативного шрифта так */
 .card__text-container {
   display: flex;
   flex-direction: column;
   gap: 27px;
-  padding: 25px;
-  font-variation-settings: "wght" var(--text-weight);
+  padding: 20px 25px 25px 25px;
+  font-variation-settings: "wght" 465;
 }
 
 .card__reaction {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 2px;
   padding: 0 25px 25px 25px;
   align-self: end;
 }
@@ -242,17 +245,22 @@
   padding: 0px;
 }
 
+.button__content {
+  color: var(--button-hover-color);
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 2;
+}
+
 .button__text {
   font-size: 14px;
   font-family: var(--font-accent), sans-serif;
-  color: var(--accent-color);
-  transition: color 0.5s ease-in-out;
 }
 
 .save {
   background-color: var(--main-color);
-  width: clamp(19.375rem, 2.723vw + 18.737rem, 21.188rem);
-  height: clamp(5.25rem, -2.723vw + 5.888rem, 3.438rem);
+  width: 339px;
+  height: 59px;
   border: 2px solid var(--accent-color);
   margin-inline: auto;
   display: flex;
@@ -261,24 +269,22 @@
   gap: 4px;
   align-items: center;
   cursor: pointer;
+  padding: 15px 20px;
 }
 
 .save__icon {
   height: 21px;
   width: 21px;
-  color: var(--accent-color);
-  transition: color 0.5s ease-in-out;
 }
 
 .save__dialog[open] {
   display: flex;
-  width: clamp(21.313rem, 1.127vw + 21.048rem, 22.063rem);
+  width: 353px;
   padding: 30px;
   background-color: var(--main-color);
   outline: 2px solid var(--accent-color);
   flex-direction: column;
   gap: 20px;
-  justify-content: space-between;
   border: none;
 }
 
@@ -289,21 +295,23 @@
 .save__dialog-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   gap: 20px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .save__dialog-icon {
-  width: 49px;
-  height: 49px;
-  color: var(--accent-color)
+  width: 39px;
+  height: 39px;
+  aspect-ratio: 1/1;
+  color: var(--accent-color);
 }
 
 .save__dialog-text-container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 234px;
 }
 
 .save__dialog-text {
@@ -331,47 +339,48 @@
   .save {
     flex-direction: column;
     gap: 8px;
+    width: 310px;
+    height: 88px;
   }
 
   .save__icon {
     width: 28px;
     height: 28px;
   }
+
+  .save__dialog[open] {
+    width: 341px;
+  }
+
+  .card__label {
+    right: 13px;
+  }
+
+  .save__dialog-text-container {
+    width: 198px;
+  }
 }
 
-button:has(.button__text) {
+button:has(.button__content) {
   transition: box-shadow 0.3s ease;
 }
 
-button:has(.button__text):focus-visible {
+button:has(.button__content):focus-visible {
   box-shadow: 2px 2px var(--accent-color);
 }
 
-button:has(.button__text)::before {
+button:has(.button__content)::before {
   content:'';
-  display: block;
   width: inherit;
   height: inherit;
   background-color: var(--accent-color);
   position: absolute;
   transition: transform 0.5s ease-in-out;
-  z-index: 2;
   overflow: unset;
   transform: scaleX(0);
   transform-origin: left;
 }
 
-.button__content {
-  transition: color 0.5s ease-in-out;
-}
-
-button:hover .button__content {
-  mix-blend-mode: difference;
-  position: relative;
-  z-index: 3;
-  color: var(--button-hover-color);
-}
-
-button:has(.button__text):hover::before {
+button:has(.button__content):hover::before {
   transform: scaleX(1);
 }

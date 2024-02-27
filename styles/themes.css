@@ -6,6 +6,8 @@
 */
 
 :root.theme-dark .page {
+  --font-main: 'Inter-Variable';
+  --font-accent: 'PressStart2P';
   --subtitle-weight: 785px;
   --text-weight: 465px;
   --main-color: black;
@@ -19,6 +21,8 @@ linear-gradient(to bottom, #007f0c, #004306);
 }
 
 :root.theme-light .page {
+  --font-main: 'Inter-Variable';
+  --font-accent: 'PressStart2P';
   --subtitle-weight: 700px;
   --text-weight: 400px;
   --main-color: white;
@@ -33,6 +37,8 @@ linear-gradient(to bottom, #e7e7e7 0 0.01%, #1a1a1a);
 
 @media (prefers-color-scheme: dark) {
   .page {
+    --font-main: 'Inter-Variable';
+    --font-accent: 'PressStart2P';
     --subtitle-weight: 785px;
     --text-weight: 465px;
     --main-color: black;

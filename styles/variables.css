@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 
 .page {
---font-main: 'Inter-Variable', sans-serif;
+--font-main: 'Inter-Variable';
 --font-accent: 'PressStart2P';
 --subtitle-weight: 700px;
 --text-weight: 400px;
