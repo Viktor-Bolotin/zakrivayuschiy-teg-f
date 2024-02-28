@@ -3,8 +3,8 @@
 .page {
 --font-main: 'Inter-Variable';
 --font-accent: 'PressStart2P';
---subtitle-weight: 700px;
---text-weight: 400px;
+--subtitle-weight: 700;
+--text-weight: 400;
 --main-color: white;
 --accent-color: black;
 --accent-color-dark: #666666;
