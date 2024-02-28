@@ -350,6 +350,8 @@
 
   .save__dialog[open] {
     width: 341px;
+    padding-inline: 40px;
+    gap: 30px;
   }
 
   .card__label {
