@@ -132,7 +132,6 @@
   text-align: left;
 }
 
-/* Если я всё правильно понял, то нужно использовать font-variation-settings для настройки вариативного шрифта так */
 .card__title {
   font-weight: var(--subtitle-weight);
   font-variation-settings: "wght" var(--subtitle-weight);
@@ -204,7 +203,6 @@
   filter: brightness(75%);
 }
 
-/* Если я всё правильно понял, то нужно использовать font-variation-settings для настройки вариативного шрифта так */
 .card__text-container {
   display: flex;
   flex-direction: column;
